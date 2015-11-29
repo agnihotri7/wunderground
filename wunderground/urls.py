@@ -12,4 +12,6 @@ urlpatterns = patterns('',
     # url(r'^admin/', include(admin.site.urls)),
 
     url(r'^$', 'wunderground.views.home', name='home'),
+    url(r'^city/add/$', 'wunderground.views.add_city', name='add-city'),
+    url(r'^plot-graph/$', 'wunderground.views.plot_graph', name='plot-graph'),
 )
