@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %} Add City {% endblock %}
+
+{% block content %}
+  <legend><h1 style="margin-left: 73px;">Add Station Form</h1></legend>
+  <form class="contact-form" action="/city/add/" method="post" style="margin-left: 75px;">
+    {% csrf_token %}
+    <div class="control-group {% if form.zip_num.errors %}error{% endif %}">
+      <label>Zip Code</label>
+      <div class="controls">
+        <input type="text" id="inputZip" placeholder="12312" name="zip_num" value="{{ form.data.zip_num }}">
+        {% if form.zip_num.errors %}
+          <span class="form-err">{{ form.zip_num.errors }}</span>
+        {% endif %}
+      </div>
+    </div>
+    <div class="control-group {% if form.state.errors %}error{% endif %}">
+      <label>State</label>
+      <div class="controls">
+        <input type="text" id="inputState" placeholder="US" name="state" value="{{ form.data.state }}">
+        {% if form.state.errors %}
+          <span class="form-err">{{ form.state.errors }}</span>
+        {% endif %}
+      </div>
+    </div>
+    <div class="control-group {% if form.city.errors %}error{% endif %}">
+      <label class="control-label">City</label>
+      <div class="controls">
+        <input type="text" id="inputCity" placeholder="San Fransisco" name="city" value="{{ form.data.city }}">
+        {% if form.city.errors %}
+          <span class="form-err">{{ form.city.errors }}</span>
+        {% endif %}
+        {% if form.non_field_errors %}
+          <span class="form-err">{{ form.non_field_errors }}</span>
+        {% endif %}
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}

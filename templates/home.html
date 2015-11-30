@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %} Home {% endblock %}
+{% block extra_head %}
+  <script type="text/javascript">
+    $(document).ready(function(){
+        $("#id_start_date").datepicker();
+        $("#id_end_date").datepicker();
+    });
+  </script>
+{% endblock %}
+
+{% block content %}
+  <legend><h1 style="margin-left: 73px;">Plot Graph Form</h1></legend></br>
+  <form class="contact-form" action="." method="post" style="margin-left: 75px;">
+    {% csrf_token %}
+
+      <div class="controls">
+        <label>State : </label>
+        {{ form.state }}
+        <label>City : </label>
+        {{ form.city }}
+      </div>
+      </br>
+      <div class="controls">
+        <label>Parameters : </label>
+        {{ form.wp }}
+      </div>
+      </br>
+      <div class="controls">
+        <label>Start Date</label>
+        <input type="text" id="id_start_date" placeholder="12/12/2014" name="start_date" value="{{ form.data.start_date }}">
+        {% if form.start_date.errors %}
+          <span class="form-err">{{ form.start_date.errors }}</span>
+        {% endif %}
+        <label>End Date</label>
+        <input type="text" id="id_end_date" placeholder="12/12/2014" name="end_date" value="{{ form.data.end_date }}">
+        {% if form.end_date.errors %}
+          <span class="form-err">{{ form.end_date.errors }}</span>
+        {% endif %}
+        {% if form.non_field_errors %}
+          <span class="form-err">{{ form.non_field_errors }}</span>
+        {% endif %}
+      </div>
+    </br></br>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+{% endblock %}
