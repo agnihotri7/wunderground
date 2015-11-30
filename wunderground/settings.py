@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'wunderground',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -94,3 +95,11 @@ MEDIA_URL = '/media/'
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
+
+WUNDERGROUND_KEY = '72df18b7f213607b'
+
+W_PARAMETERS = [
+    ('tmp','Temprature'),
+    ('hum','Humidity'),
+    ('dew','Dew Point'),
+]

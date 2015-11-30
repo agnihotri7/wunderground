@@ -9379,3 +9379,7 @@ input[type=text].as-hint::-ms-clear {
     z-index: 9999;
     background: url(../flickr1.gif) center no-repeat #fff;
 }
+
+.form-err {
+    color: red;
+}
