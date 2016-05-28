@@ -1,5 +1,8 @@
 Wunderground
 =============
+A django website to plot weather chart using weather underground API's and highcharts.
+
+You can select a city & time range and chart will be ploted for temprature, humidity, dew point etc.
 
 # Installation
 
